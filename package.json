@@ -8,8 +8,21 @@
     "docs"
   ],
   "scripts": {
+    "test": "vitest",
+    "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
+    "clean:dist": "rimraf dist",
+    "format": "prettier --write --cache .",
+    "lint": "eslint . --ext .svelte,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
+    "lint:fix": "pnpm run lint --fix",
+    "lint:commit": "commitlint --from $(git merge-base origin/dev HEAD) --to HEAD > ./commit-lint.txt",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "test": "test"
+    "docs:dev": "pnpm run -C docs dev",
+    "docs:build": "pnpm run -C docs build",
+    "docs:serve": "pnpm run -C docs serve",
+    "docs:gen-locale": "pnpm run -C docs gen-locale",
+    "docs:crowdin-credentials": "pnpm run -C docs crowdin-credentials",
+    "stub": "pnpm run -r --parallel stub",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -25,6 +38,7 @@
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "@tsconfig/svelte": "^3.0.0",
     "@vitest/ui": "0.26.3",
+    "prettier": "^2.8.2",
     "svelte": "^3.55.0",
     "svelte-check": "^2.10.3",
     "tslib": "^2.4.1",
