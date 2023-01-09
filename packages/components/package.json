@@ -1,0 +1,14 @@
+{
+  "name": "@lightjs/components",
+  "version": "0.0.1",
+  "description": "A guides' UI library for web applications",
+  "main": "index.ts",
+  "module": "index.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "peerDependencies": {
+    "svelte": "^3.0.0"
+  }
+}

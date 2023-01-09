@@ -1,0 +1,41 @@
+{
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@7.3.0",
+  "workspaces": [
+    "packages/*",
+    "play",
+    "docs"
+  ],
+  "scripts": {
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/GoblinAlchemist/lights-components.git"
+  },
+  "author": "GA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GoblinAlchemist/lights-components/issues"
+  },
+  "homepage": "https://github.com/GoblinAlchemist/lights-components#readme",
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.0.2",
+    "@tsconfig/svelte": "^3.0.0",
+    "@vitest/ui": "0.26.3",
+    "svelte": "^3.55.0",
+    "svelte-check": "^2.10.3",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.4",
+    "vitest": "0.26.3"
+  },
+  "peerDependencies": {
+    "svelte": "^3.0.0"
+  },
+  "engines": {
+    "node": ">= 16"
+  }
+}
