@@ -40,6 +40,8 @@
     "@lightjs/eslint-config": "workspace:*"
   },
   "devDependencies": {
+    "@emotion/react": "^11.1.1",
+    "@emotion/styled": "^11.0.0",
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "@tsconfig/svelte": "^3.0.0",
     "@vitest/ui": "0.26.3",

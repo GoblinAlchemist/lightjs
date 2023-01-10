@@ -1,0 +1,62 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarnpkg install --cwd /Users/marui/Desktop/svelte-guide-components/docs
+
+PATH: 
+  /Users/marui/.npm/_npx/77490/bin:/Users/marui/Desktop/svelte-guide-components/node_modules/.bin:/Users/marui/.pyenv/bin:/Users/marui/.pyenv/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/marui/.pyenv/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.18.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.npmjs.org/@lightjs%2fcomponents: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1358:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "private": true,
+    "name": "docz-example-typescript",
+    "version": "2.0.0-rc.41",
+    "license": "MIT",
+    "files": [
+      "src/",
+      "doczrc.js",
+      "tsconfig.json",
+      "package.json"
+    ],
+    "scripts": {
+      "dev": "docz dev",
+      "build": "docz build"
+    },
+    "dependencies": {
+      "@emotion/react": "^11.1.1",
+      "@emotion/styled": "^11.0.0",
+      "docz": "latest",
+      "react": "^16.8.6",
+      "react-dom": "^16.8.6"
+    },
+    "devDependencies": {
+      "@types/react": "^16.8.23",
+      "@types/react-dom": "^16.8.4"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
