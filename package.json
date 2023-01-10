@@ -34,10 +34,18 @@
     "url": "https://github.com/GoblinAlchemist/lights-components/issues"
   },
   "homepage": "https://github.com/GoblinAlchemist/lights-components#readme",
+  "dependencies": {
+    "@lightjs/components": "workspace:*",
+    "@lightjs/constants": "workspace:*",
+    "@lightjs/eslint-config": "workspace:*"
+  },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "@tsconfig/svelte": "^3.0.0",
     "@vitest/ui": "0.26.3",
+    "eslint": "^8.0.1",
+    "eslint-define-config": "^1.5.1",
+    "husky": "^8.0.3",
     "prettier": "^2.8.2",
     "svelte": "^3.55.0",
     "svelte-check": "^2.10.3",
