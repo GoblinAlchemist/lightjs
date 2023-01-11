@@ -1,0 +1,41 @@
+{
+  "name": "@lightjs/theme-chalk",
+  "version": "0.0.1",
+  "description": "lightjs component chalk theme.",
+  "keywords": [
+    "svelte-components",
+    "lightjs",
+    "theme-chalk",
+    "theme-light"
+  ],
+  "bugs": {
+    "url": "https://github.com/GoblinAlchemist/lights-components/issues"
+  },
+  "license": "MIT",
+  "author": "yi.shyang@ele.me",
+  "main": "index.css",
+  "unpkg": "index.css",
+  "jsdelivr": "index.css",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/GoblinAlchemist/lights-components.git"
+  },
+  "style": "index.css",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "gulp --require @esbuild-kit/cjs-loader"
+  },
+  "devDependencies": {
+    "@lightjs/build": "workspace:*",
+    "@esbuild-kit/cjs-loader": "^2.2.1",
+    "@types/gulp-autoprefixer": "^0.0.33",
+    "@types/gulp-clean-css": "^4.3.0",
+    "@types/gulp-rename": "^2.0.1",
+    "@types/gulp-sass": "^5.0.0",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0"
+  },
+  "gitHead": "c69724230befa8fede0e6b9c37fb0b7e39fd7cdd"
+}

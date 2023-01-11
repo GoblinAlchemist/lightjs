@@ -11,6 +11,10 @@
     "test": "vitest",
     "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
     "clean:dist": "rimraf dist",
+    "build": "pnpm run -C internal/build start",
+    "build:theme": "pnpm run -C packages/theme-chalk build",
+    "gen": "bash ./scripts/gc.sh",
+    "gen:version": "tsx scripts/gen-version.ts",
     "format": "prettier --write --cache .",
     "lint": "eslint . --ext .svelte,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
     "lint:fix": "pnpm run lint --fix",
@@ -18,11 +22,9 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "docs:dev": "pnpm run -C docs dev",
     "docs:build": "pnpm run -C docs build",
-    "docs:serve": "pnpm run -C docs serve",
-    "docs:gen-locale": "pnpm run -C docs gen-locale",
-    "docs:crowdin-credentials": "pnpm run -C docs crowdin-credentials",
     "stub": "pnpm run -r --parallel stub",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "pnpm stub && concurrently \"pnpm gen:version\" \"pnpm run -C internal/metadata dev\""
   },
   "repository": {
     "type": "git",
@@ -37,14 +39,24 @@
   "dependencies": {
     "@lightjs/components": "workspace:*",
     "@lightjs/constants": "workspace:*",
-    "@lightjs/eslint-config": "workspace:*"
+    "@lightjs/build": "workspace:*",
+    "@lightjs/build-utils": "workspace:*",
+    "@lightjs/theme-chalk": "workspace:*",
+    "@lightjs/utils": "workspace:*"
   },
   "devDependencies": {
     "@emotion/react": "^11.1.1",
     "@emotion/styled": "^11.0.0",
+    "@lightjs/build": "workspace:^0.0.1",
+    "@lightjs/build-utils": "workspace:^0.0.1",
+    "@lightjs/eslint-config": "workspace:*",
+    "@pnpm/find-workspace-packages": "^4.0.16",
+    "@pnpm/logger": "^4.0.0",
+    "@pnpm/types": "^8.4.0",
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "@tsconfig/svelte": "^3.0.0",
     "@vitest/ui": "0.26.3",
+    "concurrently": "^7.2.2",
     "eslint": "^8.0.1",
     "eslint-define-config": "^1.5.1",
     "husky": "^8.0.3",

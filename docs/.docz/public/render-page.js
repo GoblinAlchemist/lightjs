@@ -4713,7 +4713,7 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var scope_0 = __webpack_require__(/*! ./.cache/caches/gatsby-plugin-mdx/mdx-scopes-dir/4f38ab4e4a08940d3a5d81db215c3db0.js */ "./.cache/caches/gatsby-plugin-mdx/mdx-scopes-dir/4f38ab4e4a08940d3a5d81db215c3db0.js").default;
-var scope_1 = __webpack_require__(/*! ./.cache/caches/gatsby-plugin-mdx/mdx-scopes-dir/e09dad8af46eb5b1f11a094231d8e8a6.js */ "./.cache/caches/gatsby-plugin-mdx/mdx-scopes-dir/e09dad8af46eb5b1f11a094231d8e8a6.js").default;
+var scope_1 = __webpack_require__(/*! ./.cache/caches/gatsby-plugin-mdx/mdx-scopes-dir/df99cf6aed16233003c2532f344b583e.js */ "./.cache/caches/gatsby-plugin-mdx/mdx-scopes-dir/df99cf6aed16233003c2532f344b583e.js").default;
 var scope_2 = __webpack_require__(/*! ./.cache/caches/gatsby-plugin-mdx/mdx-scopes-dir/e92f8988d65cf25c087d226e6c0ef06f.js */ "./.cache/caches/gatsby-plugin-mdx/mdx-scopes-dir/e92f8988d65cf25c087d226e6c0ef06f.js").default;
 const __DOCZ_DUMMY_EXPORT_DEFAULT = Object.assign({}, scope_0, scope_1, scope_2);
 /* harmony default export */ __webpack_exports__["default"] = (__DOCZ_DUMMY_EXPORT_DEFAULT);
@@ -36974,6 +36974,56 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "../../packages/components/button/index.ts":
+/*!****************************************************************************************!*\
+  !*** /Users/marui/Desktop/svelte-guide-components/packages/components/button/index.ts ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _src_Button_svelte__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/Button.svelte */ "../../packages/components/button/src/Button.svelte");
+/* harmony import */ var _src_Button_svelte__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_Button_svelte__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = (_src_Button_svelte__WEBPACK_IMPORTED_MODULE_0___default.a);
+if (typeof _src_Button_svelte__WEBPACK_IMPORTED_MODULE_0___default.a !== 'undefined' && _src_Button_svelte__WEBPACK_IMPORTED_MODULE_0___default.a && _src_Button_svelte__WEBPACK_IMPORTED_MODULE_0___default.a === Object(_src_Button_svelte__WEBPACK_IMPORTED_MODULE_0___default.a) && Object.isExtensible(_src_Button_svelte__WEBPACK_IMPORTED_MODULE_0___default.a) && !Object.prototype.hasOwnProperty.call(_src_Button_svelte__WEBPACK_IMPORTED_MODULE_0___default.a, '__filemeta')) {
+  Object.defineProperty(_src_Button_svelte__WEBPACK_IMPORTED_MODULE_0___default.a, '__filemeta', {
+    configurable: true,
+    value: {
+      name: "Button",
+      filename: "../packages/components/button/index.ts"
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "../../packages/components/button/src/Button.svelte":
+/*!*************************************************************************************************!*\
+  !*** /Users/marui/Desktop/svelte-guide-components/packages/components/button/src/Button.svelte ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n> <script lang=\"ts\">\n|     export let type: string = 'primary';\n| </script>");
+
+/***/ }),
+
+/***/ "../../packages/components/index.ts":
+/*!*********************************************************************************!*\
+  !*** /Users/marui/Desktop/svelte-guide-components/packages/components/index.ts ***!
+  \*********************************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button */ "../../packages/components/button/index.ts");
+/* empty/unused harmony star reexport */
+
+/***/ }),
+
 /***/ "../src/components/Alert.tsx":
 /*!***********************************!*\
   !*** ../src/components/Alert.tsx ***!
@@ -37048,91 +37098,6 @@ if (typeof Alert !== 'undefined' && Alert && Alert === Object(Alert) && Object.i
     value: {
       name: "Alert",
       filename: "src/components/Alert.tsx"
-    }
-  });
-}
-
-/***/ }),
-
-/***/ "../src/components/Button.tsx":
-/*!************************************!*\
-  !*** ../src/components/Button.tsx ***!
-  \************************************/
-/*! exports provided: Button */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return Button; });
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "../../node_modules/.pnpm/@babel+runtime@7.20.7/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @emotion/core */ "../../node_modules/.pnpm/@emotion+core@10.3.1_react@16.14.0/node_modules/@emotion/core/dist/core.esm.js");
-
-const _excluded = ["children"];
-
-
-const scales = {
-  small: `
-    padding: 5px 10px;
-    font-size: 14px;
-  `,
-  normal: `
-    padding: 10px 20px;
-    font-size: 16px;
-  `,
-  big: `
-    padding: 20px 30px;
-    font-size: 18px;
-  `
-};
-const kind = outline => (bg, color) => {
-  const boxShadowColor = outline ? bg : 'transparent';
-  const backgroundColor = outline ? 'transparent' : bg;
-  return `
-    background: ${backgroundColor};
-    box-shadow: inset 0 0 0 1px ${boxShadowColor};
-    color: ${outline ? bg : color};
-    transition: all .3s;
-
-    &:hover {
-      box-shadow: inset 0 0 0 1000px ${boxShadowColor};
-      color: ${color};
-    }
-  `;
-};
-const kinds = outline => {
-  const get = kind(outline);
-  return {
-    primary: get('#1FB6FF', 'white'),
-    secondary: get('#5352ED', 'white'),
-    cancel: get('#FF4949', 'white'),
-    dark: get('#273444', 'white'),
-    gray: get('#8492A6', 'white')
-  };
-};
-if (typeof ButtonProps !== 'undefined' && ButtonProps && ButtonProps === Object(ButtonProps) && Object.isExtensible(ButtonProps) && !Object.prototype.hasOwnProperty.call(ButtonProps, '__filemeta')) {
-  Object.defineProperty(ButtonProps, '__filemeta', {
-    configurable: true,
-    value: {
-      name: "ButtonProps",
-      filename: "src/components/Button.tsx"
-    }
-  });
-}
-const Button = _ref => {
-  let {
-      children
-    } = _ref,
-    props = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__["default"])(_ref, _excluded);
-  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_2__["jsx"])("button", props, children);
-};
-if (typeof Button !== 'undefined' && Button && Button === Object(Button) && Object.isExtensible(Button) && !Object.prototype.hasOwnProperty.call(Button, '__filemeta')) {
-  Object.defineProperty(Button, '__filemeta', {
-    configurable: true,
-    value: {
-      name: "Button",
-      filename: "src/components/Button.tsx"
     }
   });
 }
@@ -37457,9 +37422,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./.cache/caches/gatsby-plugin-mdx/mdx-scopes-dir/e09dad8af46eb5b1f11a094231d8e8a6.js":
+/***/ "./.cache/caches/gatsby-plugin-mdx/mdx-scopes-dir/df99cf6aed16233003c2532f344b583e.js":
 /*!********************************************************************************************!*\
-  !*** ./.cache/caches/gatsby-plugin-mdx/mdx-scopes-dir/e09dad8af46eb5b1f11a094231d8e8a6.js ***!
+  !*** ./.cache/caches/gatsby-plugin-mdx/mdx-scopes-dir/df99cf6aed16233003c2532f344b583e.js ***!
   \********************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -37467,7 +37432,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var docz__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! docz */ "../../node_modules/.pnpm/docz@2.3.1_41ffba2c6d9fb4425d0090217f51b4f6/node_modules/docz/dist/index.esm.js");
-/* harmony import */ var _src_components_Button_tsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../src/components/Button.tsx */ "../src/components/Button.tsx");
+/* harmony import */ var _lightjs_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @lightjs/components */ "../../packages/components/index.ts");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 
@@ -37476,7 +37441,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   Playground: docz__WEBPACK_IMPORTED_MODULE_0__["Playground"],
   Props: docz__WEBPACK_IMPORTED_MODULE_0__["Props"],
-  Button: _src_components_Button_tsx__WEBPACK_IMPORTED_MODULE_1__["Button"],
+  Button: _lightjs_components__WEBPACK_IMPORTED_MODULE_1__["Button"],
   React: react__WEBPACK_IMPORTED_MODULE_2__
 });
 

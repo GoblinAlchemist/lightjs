@@ -1,9 +1,9 @@
 {
   "config": {
-    "title": "Docz Example Typescript",
+    "title": "Docs",
     "description": "My awesome app using docz",
     "menu": [],
-    "version": "2.0.0-rc.41",
+    "version": "0.0.1",
     "repository": null,
     "native": false,
     "themeConfig": {},
