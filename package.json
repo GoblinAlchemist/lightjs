@@ -39,8 +39,6 @@
   "dependencies": {
     "@lightjs/components": "workspace:*",
     "@lightjs/constants": "workspace:*",
-    "@lightjs/build": "workspace:*",
-    "@lightjs/build-utils": "workspace:*",
     "@lightjs/theme-chalk": "workspace:*",
     "@lightjs/utils": "workspace:*"
   },

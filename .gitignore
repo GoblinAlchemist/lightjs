@@ -7,3 +7,13 @@ node_modules
 
 # System
 .DS_Store
+
+# Bundle
+dist
+packages/lightjs/version.ts
+
+# local env files
+*.local
+.eslintcache
+docs/.docz/*
+tmp
