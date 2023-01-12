@@ -3,6 +3,7 @@ import path from 'path'
 import consola from 'consola'
 import { epRoot } from '@lightjs/build-utils'
 import pkg from '../packages/lightjs/package.json' // need to be checked
+consola.info('epRoot', epRoot)
 
 function getVersion() {
   const tagVer = process.env.TAG_VERSION
@@ -17,7 +18,6 @@ const version = getVersion()
 
 async function main() {
   consola.info(`Version: ${version}`)
-  console.info('epRoot', epRoot)
   await writeFile(
     path.resolve(epRoot, 'version.ts'),
     `export const version = '${version}'\n`
