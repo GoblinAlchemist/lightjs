@@ -2,19 +2,13 @@ import path from 'path'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { rollup } from 'rollup'
 import commonjs from '@rollup/plugin-commonjs'
-import vue from '@vitejs/plugin-vue'
-import VueMacros from 'unplugin-vue-macros/rollup'
-import vueJsx from '@vitejs/plugin-vue-jsx'
 import esbuild, { minify as minifyPlugin } from 'rollup-plugin-esbuild'
 import { parallel } from 'gulp'
-import glob from 'fast-glob'
-import { camelCase, upperFirst } from 'lodash'
 import {
   PKG_BRAND_NAME,
-  PKG_CAMELCASE_LOCAL_NAME,
   PKG_CAMELCASE_NAME,
 } from '@lightjs/build-constants'
-import { epOutput, epRoot, localeRoot } from '@lightjs/build-utils'
+import { epOutput, epRoot } from '@lightjs/build-utils'
 import { version } from '../../../../packages/lightjs/version'
 import { ElementPlusAlias } from '../plugins/light-alias'
 import {
@@ -31,16 +25,6 @@ const banner = `/*! ${PKG_BRAND_NAME} v${version} */\n`
 async function buildFullEntry(minify: boolean) {
   const plugins: Plugin[] = [
     ElementPlusAlias(),
-    VueMacros({
-      setupComponent: false,
-      setupSFC: false,
-      plugins: {
-        vue: vue({
-          isProduction: true,
-        }),
-        vueJsx: vueJsx(),
-      },
-    }),
     nodeResolve({
       extensions: ['.mjs', '.js', '.json', '.ts'],
     }),
@@ -50,7 +34,7 @@ async function buildFullEntry(minify: boolean) {
       sourceMap: minify,
       target,
       loaders: {
-        '.vue': 'ts',
+        '.svelte': 'ts',
       },
       define: {
         'process.env.NODE_ENV': JSON.stringify('production'),

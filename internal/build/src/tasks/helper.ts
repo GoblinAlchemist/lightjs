@@ -12,7 +12,7 @@ import {
   epPackage,
   getPackageManifest,
   projRoot,
-} from '@element-plus/build-utils'
+} from '@lightjs/build-utils'
 
 import type { TaskFunction } from 'gulp'
 import type {
@@ -28,7 +28,7 @@ const typeMap = {
 }
 
 const reComponentName: ReComponentName = (title) =>
-  `el-${hyphenate(title).replace(/[ ]+/g, '-')}`
+  `light-${hyphenate(title).replace(/[ ]+/g, '-')}`
 
 const reDocUrl: ReDocUrl = (fileName, header) => {
   const docs = 'https://element-plus.org/en-US/component/'
@@ -38,7 +38,7 @@ const reDocUrl: ReDocUrl = (fileName, header) => {
 }
 
 const reWebTypesSource: ReWebTypesSource = (title) => {
-  const symbol = `El${title
+  const symbol = `Light${title
     .replaceAll(/-/g, ' ')
     .replaceAll(/^\w|\s+\w/g, (item) => {
       return item.trim().toUpperCase()
@@ -87,8 +87,8 @@ const reAttribute: ReAttribute = (value, key) => {
       : str.replaceAll(/`/g, '').replaceAll(/\([^)]*\)(?!\s*=>)/g, '')
   } else if (key === 'Subtags') {
     return str
-      ? `el-${str
-          .replaceAll(/\s*\/\s*/g, '/el-')
+      ? `light-${str
+          .replaceAll(/\s*\/\s*/g, '/light-')
           .replaceAll(/\B([A-Z])/g, '-$1')
           .replaceAll(/\s+/g, '-')
           .toLowerCase()}`

@@ -1,4 +1,4 @@
-import { epPackage, getPackageDependencies } from '@element-plus/build-utils'
+import { epPackage, getPackageDependencies } from '@lightjs/build-utils'
 
 import type { OutputOptions, RollupBuild } from 'rollup'
 

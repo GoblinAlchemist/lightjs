@@ -2,6 +2,8 @@ import { rollup } from 'rollup'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import esbuild from 'rollup-plugin-esbuild'
+import sveltePlugin from "esbuild-svelte"
+import svelte from 'rollup-plugin-svelte'
 import glob from 'fast-glob'
 import { epRoot, excludeFiles, pkgRoot } from '@lightjs/build-utils'
 import { generateExternal, writeBundles } from '../utils'
@@ -22,8 +24,12 @@ export const buildModules = async () => {
     input,
     plugins: [
       ElementPlusAlias(),
+      svelte({
+        include: 'packages/components/**/*.svelte',
+      }),
       nodeResolve({
-        extensions: ['.mjs', '.js', '.json', '.ts'],
+        extensions: ['.mjs', '.js', '.json', '.ts', '.svelte'],
+        exportConditions: ['svelte'],
       }),
       commonjs(),
       esbuild({

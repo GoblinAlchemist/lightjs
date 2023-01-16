@@ -3,7 +3,6 @@ import path from 'path'
 import consola from 'consola'
 import { epRoot } from '@lightjs/build-utils'
 import pkg from '../packages/lightjs/package.json' // need to be checked
-consola.info('epRoot', epRoot)
 
 function getVersion() {
   const tagVer = process.env.TAG_VERSION

@@ -24,7 +24,7 @@
     "docs:build": "pnpm run -C docs build",
     "stub": "pnpm run -r --parallel stub",
     "prepare": "husky install",
-    "postinstall": "pnpm stub && concurrently \"pnpm gen:version\" \"pnpm run -C internal/metadata dev\""
+    "postinstall": "pnpm stub && concurrently \"pnpm run -C internal/metadata dev\""
   },
   "repository": {
     "type": "git",
@@ -55,10 +55,13 @@
     "@tsconfig/svelte": "^3.0.0",
     "@vitest/ui": "0.26.3",
     "concurrently": "^7.2.2",
+    "esbuild-svelte": "^0.7.3",
     "eslint": "^8.0.1",
     "eslint-define-config": "^1.5.1",
     "husky": "^8.0.3",
     "prettier": "^2.8.2",
+    "rollup-plugin-svelte": "^7.1.0",
+    "sass": "1.53.0",
     "svelte": "^3.55.0",
     "svelte-check": "^2.10.3",
     "tslib": "^2.4.1",
