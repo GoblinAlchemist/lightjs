@@ -1,5 +1,6 @@
 import process from 'process'
 import path from 'path'
+import * as svelteCompiler from 'svelte/compiler'
 import { mkdir, readFile, writeFile } from 'fs/promises'
 import consola from 'consola'
 import glob from 'fast-glob'
@@ -88,9 +89,9 @@ export const generateTypesDefinitions = async () => {
 async function addSourceFiles(project: Project) {
   // project.addSourceFileAtPath(path.resolve(projRoot, 'typings/env.d.ts'))
 
-  const globSourceFile = '**/*.{js?(x),ts?(x),vue}'
+  const globSourceFile = '**/*.{js?(x),ts?(x),svelte}'
   const filePaths = excludeFiles(
-    await glob([globSourceFile, '!element-plus/**/*'], {
+    await glob([globSourceFile, '!lightjs/**/*'], {
       cwd: pkgRoot,
       absolute: true,
       onlyFiles: true,
@@ -106,34 +107,28 @@ async function addSourceFiles(project: Project) {
   const sourceFiles: SourceFile[] = []
   await Promise.all([
     ...filePaths.map(async (file) => {
-      // if (file.endsWith('.vue')) {
-      //   const content = await readFile(file, 'utf-8')
-      //   const hasTsNoCheck = content.includes('@ts-nocheck')
+      if (file.endsWith('.svelte')) {
+        const content = await readFile(file, 'utf-8')
+        const hasTsNoCheck = content.includes('@ts-nocheck')
+        const sfc = svelteCompiler.compile(file)
+        const { code } = sfc.js;
+        // TODO
+        // svelte需要转换成ts，做类型识别
+        if (code) {
+          let content =
+            (hasTsNoCheck ? '// @ts-nocheck\n' : '') + (code || '')
 
-      //   const sfc = vueCompiler.parse(content)
-      //   const { script, scriptSetup } = sfc.descriptor
-      //   if (script || scriptSetup) {
-      //     let content =
-      //       (hasTsNoCheck ? '// @ts-nocheck\n' : '') + (script?.content ?? '')
-
-      //     if (scriptSetup) {
-      //       const compiled = vueCompiler.compileScript(sfc.descriptor, {
-      //         id: 'xxx',
-      //       })
-      //       content += compiled.content
-      //     }
-
-      //     const lang = scriptSetup?.lang || script?.lang || 'js'
-      //     const sourceFile = project.createSourceFile(
-      //       `${path.relative(process.cwd(), file)}.${lang}`,
-      //       content
-      //     )
-      //     sourceFiles.push(sourceFile)
-      //   }
-      // } else {
+          const lang = 'ts'
+          const sourceFile = project.createSourceFile(
+            `${path.relative(process.cwd(), file)}.${lang}`,
+            content
+          )
+          sourceFiles.push(sourceFile)
+        }
+      } else {
         const sourceFile = project.addSourceFileAtPath(file)
         sourceFiles.push(sourceFile)
-      // }
+      }
     }),
     ...epPaths.map(async (file) => {
       const content = await readFile(path.resolve(epRoot, file), 'utf-8')

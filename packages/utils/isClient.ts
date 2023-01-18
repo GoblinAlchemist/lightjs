@@ -1,4 +1,4 @@
-const cacheStringFunction = (fn: (str: string) => string) => {
+export const cacheStringFunction = (fn: (str: string) => string) => {
   const cache = Object.create(null)
   return (str: string) => {
     const hit = cache[str]

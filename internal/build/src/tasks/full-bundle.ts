@@ -11,6 +11,9 @@ import {
 import { epOutput, epRoot } from '@lightjs/build-utils'
 import { version } from '../../../../packages/lightjs/version'
 import { ElementPlusAlias } from '../plugins/light-alias'
+import preprocess from 'svelte-preprocess'
+import sveltePlugin from "esbuild-svelte"
+import svelte from 'rollup-plugin-svelte'
 import {
   formatBundleFilename,
   generateExternal,
@@ -19,14 +22,28 @@ import {
 } from '../utils'
 import { target } from '../build-info'
 import type { Plugin } from 'rollup'
+import { typescript } from 'svelte-preprocess-esbuild'
 
 const banner = `/*! ${PKG_BRAND_NAME} v${version} */\n`
 
 async function buildFullEntry(minify: boolean) {
   const plugins: Plugin[] = [
     ElementPlusAlias(),
+    svelte({
+      preprocess: [
+        typescript({
+          target,
+          define: {
+            'process.browser': 'true'
+          }
+        }),
+        // avoid double compile
+        preprocess({ typescript: false }),
+      ],
+    }),
     nodeResolve({
-      extensions: ['.mjs', '.js', '.json', '.ts'],
+      extensions: ['.mjs', '.js', '.json', '.ts', '.svelte'],
+      exportConditions: ['svelte'],
     }),
     commonjs(),
     esbuild({
@@ -35,6 +52,12 @@ async function buildFullEntry(minify: boolean) {
       target,
       loaders: {
         '.svelte': 'ts',
+      },
+      optimizeDeps: {
+        include: ['svelte'],
+        esbuildOptions: {
+          plugins: [sveltePlugin()]
+        }
       },
       define: {
         'process.env.NODE_ENV': JSON.stringify('production'),
@@ -69,7 +92,7 @@ async function buildFullEntry(minify: boolean) {
       exports: 'named',
       name: PKG_CAMELCASE_NAME,
       globals: {
-        vue: 'Vue',
+        svelte: 'svelte',
       },
       sourcemap: minify,
       banner,

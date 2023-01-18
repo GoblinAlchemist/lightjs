@@ -30,7 +30,7 @@ mkdir -p "$DIRNAME"
 mkdir -p "$DIRNAME/src"
 mkdir -p "$DIRNAME/__tests__"
 
-cat > $DIRNAME/src/$INPUT_NAME.vue <<EOF
+cat > $DIRNAME/src/$INPUT_NAME.svelte <<EOF
 <template>
   <div>
     <slot />

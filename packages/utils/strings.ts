@@ -1,9 +1,18 @@
-import { toCapitalize } from '.'
-export {
-  camelize,
-  hyphenate,
-  hyphenate as kebabCase, // alias
-} from '@vue/shared'
+import { cacheStringFunction, toCapitalize } from '.'
+
+const hyphenateRE = /\B([A-Z])/g;
+const camelizeRE = /-(\w)/g;
+
+/**
+ * @private
+ */
+export const camelize = cacheStringFunction((str) => {
+    return str.replace(camelizeRE, (_, c) => (c ? c.toUpperCase() : ''));
+});
+
+export const hyphenate = cacheStringFunction((str) => str.replace(hyphenateRE, '-$1').toLowerCase())
+
+export const kebabCase = hyphenate; // alias
 
 /**
  * fork from {@link https://github.com/sindresorhus/escape-string-regexp}
