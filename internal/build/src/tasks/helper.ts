@@ -24,6 +24,7 @@ import type {
 } from 'components-helper'
 
 const typeMap = {
+  // todo
   vue: ['Component', 'VNode', 'CSSProperties', 'StyleValue'],
 }
 

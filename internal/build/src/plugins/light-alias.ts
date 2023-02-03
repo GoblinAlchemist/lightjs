@@ -2,7 +2,7 @@ import { PKG_NAME, PKG_PREFIX } from '@lightjs/build-constants'
 
 import type { Plugin } from 'rollup'
 
-export function ElementPlusAlias(): Plugin {
+export function LightAlias(): Plugin {
   const themeChalk = 'theme-chalk'
   const sourceThemeChalk = `${PKG_PREFIX}/${themeChalk}` as const
   const bundleThemeChalk = `${PKG_NAME}/${themeChalk}` as const

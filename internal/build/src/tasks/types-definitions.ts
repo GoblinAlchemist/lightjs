@@ -89,7 +89,9 @@ export const generateTypesDefinitions = async () => {
 async function addSourceFiles(project: Project) {
   // project.addSourceFileAtPath(path.resolve(projRoot, 'typings/env.d.ts'))
 
-  const globSourceFile = '**/*.{js?(x),ts?(x),svelte}'
+  // const globSourceFile = '**/*.{js?(x),ts?(x),svelte}'
+  const globSourceFile = '**/+([a-zA-z0-9-]).{js?(x),ts?(x)}'
+  const svelteSourceFile = '**/*.svelte'
   const filePaths = excludeFiles(
     await glob([globSourceFile, '!lightjs/**/*'], {
       cwd: pkgRoot,
@@ -97,8 +99,16 @@ async function addSourceFiles(project: Project) {
       onlyFiles: true,
     })
   )
+  const sveltePaths = excludeFiles(
+    await glob([svelteSourceFile], {
+      cwd: pkgRoot,
+      absolute: true,
+      onlyFiles: true,
+    })
+  )
+
   const epPaths = excludeFiles(
-    await glob(globSourceFile, {
+    await glob([globSourceFile], {
       cwd: epRoot,
       onlyFiles: true,
     })
@@ -108,23 +118,23 @@ async function addSourceFiles(project: Project) {
   await Promise.all([
     ...filePaths.map(async (file) => {
       if (file.endsWith('.svelte')) {
-        const content = await readFile(file, 'utf-8')
-        const hasTsNoCheck = content.includes('@ts-nocheck')
-        const sfc = svelteCompiler.compile(file)
-        const { code } = sfc.js;
-        // TODO
-        // svelte需要转换成ts，做类型识别
-        if (code) {
-          let content =
-            (hasTsNoCheck ? '// @ts-nocheck\n' : '') + (code || '')
+        // const content = await readFile(file, 'utf-8')
+        // const hasTsNoCheck = content.includes('@ts-nocheck')
+        // const sfc = svelteCompiler.compile(file)
+        // const { code } = sfc.js;
+        // // TODO
+        // // svelte需要转换成ts，做类型识别
+        // if (code) {
+        //   let content =
+        //     (hasTsNoCheck ? '// @ts-nocheck\n' : '') + (code || '')
 
-          const lang = 'ts'
-          const sourceFile = project.createSourceFile(
-            `${path.relative(process.cwd(), file)}.${lang}`,
-            content
-          )
-          sourceFiles.push(sourceFile)
-        }
+        //   const lang = 'ts'
+        //   const sourceFile = project.createSourceFile(
+        //     `${path.relative(process.cwd(), file)}.${lang}`,
+        //     content
+        //   )
+        //   sourceFiles.push(sourceFile)
+        // }
       } else {
         const sourceFile = project.addSourceFileAtPath(file)
         sourceFiles.push(sourceFile)

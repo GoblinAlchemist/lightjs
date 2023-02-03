@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let type: string = 'primary';
+    export let mold: string = 'primary';
 </script>
 
 <button>点一下</button>

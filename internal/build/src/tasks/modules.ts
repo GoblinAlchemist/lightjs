@@ -9,7 +9,7 @@ import preprocess from 'svelte-preprocess';
 import glob from 'fast-glob'
 import { epRoot, excludeFiles, pkgRoot } from '@lightjs/build-utils'
 import { generateExternal, writeBundles } from '../utils'
-import { ElementPlusAlias } from '../plugins/light-alias'
+import { LightAlias } from '../plugins/light-alias'
 import { buildConfigEntries, target } from '../build-info'
 
 import type { OutputOptions } from 'rollup'
@@ -25,7 +25,7 @@ export const buildModules = async () => {
   const bundle = await rollup({
     input,
     plugins: [
-      ElementPlusAlias(),
+      LightAlias(),
       svelte({
         preprocess: [
           typescript({
@@ -35,7 +35,7 @@ export const buildModules = async () => {
             }
           }),
           // avoid double compile
-          preprocess({ typescript: false }),
+          preprocess({ typescript: true }),
         ],
       }),
       nodeResolve({

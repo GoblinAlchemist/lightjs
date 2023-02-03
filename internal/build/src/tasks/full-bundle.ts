@@ -10,7 +10,7 @@ import {
 } from '@lightjs/build-constants'
 import { epOutput, epRoot } from '@lightjs/build-utils'
 import { version } from '../../../../packages/lightjs/version'
-import { ElementPlusAlias } from '../plugins/light-alias'
+import { LightAlias } from '../plugins/light-alias'
 import preprocess from 'svelte-preprocess'
 import sveltePlugin from "esbuild-svelte"
 import svelte from 'rollup-plugin-svelte'
@@ -28,7 +28,7 @@ const banner = `/*! ${PKG_BRAND_NAME} v${version} */\n`
 
 async function buildFullEntry(minify: boolean) {
   const plugins: Plugin[] = [
-    ElementPlusAlias(),
+    LightAlias(),
     svelte({
       preprocess: [
         typescript({
